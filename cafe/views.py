@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.contrib.auth.models import User
 import razorpay
+from decimal import Decimal
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -144,8 +145,8 @@ def place_order(request):
 
         total += price * quantity
 
-    sgst = total * 0.025
-    cgst = total * 0.025
+    sgst = total * Decimal(0.025)
+    cgst = total * Decimal(0.025)
     final_total = total + sgst + cgst
 
     order.total_amount = final_total
