@@ -145,8 +145,8 @@ def place_order(request):
 
         total += price * quantity
 
-    sgst = total * Decimal(0.025)
-    cgst = total * Decimal(0.025)
+    sgst = total * Decimal("0.025")
+    cgst = total * Decimal("0.025")
     final_total = total + sgst + cgst
 
     order.total_amount = final_total
