@@ -1,18 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // Show variants
     document.querySelectorAll(".show-variants").forEach(button => {
 
-    button.addEventListener("click", function () {
+        button.addEventListener("click", function () {
 
-        let itemId = this.dataset.item;
+            let itemId = this.dataset.item;
 
-        let box = document.getElementById(`variants-${itemId}`);
+            let box = document.getElementById(`variants-${itemId}`);
 
-        box.classList.toggle("d-none");
+            box.classList.toggle("d-none");
+
+        });
 
     });
 
-});
 
+    // Add to cart
     document.querySelectorAll(".add-to-cart").forEach(button => {
 
         button.addEventListener("click", function () {
@@ -30,25 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (data.success) {
 
-                    // update cart bubble
                     let bubble = document.getElementById("cart-count");
 
-                    bubble.innerText = data.cart_count;
+                    if (bubble) {
+                        bubble.innerText = data.cart_count;
 
-                    if (data.cart_count > 0) {
-                        bubble.style.display = "inline";
-                    } else {
-                        bubble.style.display = "none";
+                        if (data.cart_count > 0) {
+                            bubble.style.display = "inline";
+                        } else {
+                            bubble.style.display = "none";
+                        }
                     }
-
-                    // show toast
-                    let toast = document.getElementById("toast-box");
-
-                    toast.style.display = "block";
-
-                    setTimeout(() => {
-                        toast.style.display = "none";
-                    }, 3000);
 
                 }
 
