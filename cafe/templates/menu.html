@@ -170,8 +170,25 @@
 
     </div>
 
-    {% endfor %}
+        {% endfor %}
+        <div id="toast-box"
+            class="position-fixed bottom-0 start-50 translate-middle-x p-3 w-auto"
+            style="z-index:9999; display:none;">
 
+            <div class="bg-dark text-white px-4 py-3 rounded shadow d-inline-flex align-items-center gap-3">
+
+                <span>Item added to cart</span>
+
+                <a href="{% url 'cart' %}"
+                class="text-warning text-decoration-none fw-bold">
+
+                    GO TO CART
+
+                </a>
+
+            </div>
+
+        </div>
 </div>
 
 {% endblock %}

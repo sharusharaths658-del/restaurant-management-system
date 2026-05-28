@@ -40,10 +40,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         bubble.innerText = data.cart_count;
 
                         if (data.cart_count > 0) {
-                            bubble.style.display = "inline";
+                            bubble.style.display = "inline-block";
                         } else {
                             bubble.style.display = "none";
                         }
+                        let toast = document.getElementById("toast-box");
+                        if(toast){
+                                toast.style.display = "block";
+                                setTimeout(() => {
+                                    toast.style.display = "none";
+                            },3000);
+                        }
+                       
                     }
 
                 }

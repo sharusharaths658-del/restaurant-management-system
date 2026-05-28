@@ -30,14 +30,16 @@
 
                 Cart
 
-                {% if cart_count > 0 %}
-                <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span id="cart-count"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+
+                    {% if cart_count == 0 %}
+                    style="display:none;"
+                    {% endif %}>
 
                     {{ cart_count }}
 
                 </span>
-                {% endif %}
-
             </a>
 
             <a href="{% url 'order_history' %}" class="btn btn-info">
